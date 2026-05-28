@@ -46,7 +46,7 @@
       text-decoration: none;
     }
 
-    /* HEADER: Alinhamento perfeito em 3 colunas */
+    /* HEADER: Alinhamento em 3 colunas fixas */
     .site-header {
       position: fixed;
       top: 0;
@@ -227,7 +227,7 @@
       border-radius: 999px;
       font-size: 15px;
       font-weight: 820;
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
     }
 
     .button:hover {
@@ -528,6 +528,21 @@
       color: rgba(247, 242, 232, 0.48);
     }
 
+    /* BOTÃO FORMULÁRIO: Com efeito de transição idêntico ao menu */
+    .lead-form .btn-submit {
+      border: 0;
+      width: 100%;
+      cursor: pointer;
+      background: var(--charcoal);
+      color: rgba(247, 242, 232, 0.7); /* Cor padrão idêntica ao menu */
+      transition: color 180ms ease, background 180ms ease;
+    }
+
+    .lead-form .btn-submit:hover {
+      background: transparent;
+      color: var(--ivory); /* Fica marfim brilhante como o menu em hover */
+    }
+
     .site-footer {
       display: flex;
       justify-content: space-between;
@@ -604,8 +619,8 @@
   <div class="top-hover-zone"></div>
   
   <header class="site-header">
-    <!-- Coluna 1 (Esquerda): Fica vazia para garantir o equilíbrio do centro -->
-    <div></div>
+    <!-- Coluna 1 (Esquerda): Elemento invisível (&nbsp;) para segurar a estrutura do grid -->
+    <div style="grid-column: 1;">&nbsp;</div>
 
     <!-- Coluna 2 (Centro): Links de Navegação -->
     <nav class="nav-links">
@@ -614,7 +629,7 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Coluna 3 (Direita): Logótipo e Nome da Empresa -->
+    <!-- Coluna 3 (Direita): Logótipo e Nome da Empresa bem fixados -->
     <div class="brand">
       <div class="brand-mark">M</div>
       <span>MADEIRA RESIDENCES</span>
@@ -759,7 +774,7 @@
             <option value="sell">Sell my property</option>
           </select>
         </label>
-        <button type="submit" class="button button-primary" style="border:0; width:100%; cursor: pointer;">Submit Request</button>
+        <button type="submit" class="button button-primary btn-submit">Submit Request</button>
       </form>
     </section>
   </main>
