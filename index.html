@@ -46,6 +46,7 @@
       text-decoration: none;
     }
 
+    /* HEADER: Configurado com 3 colunas para garantir o alinhamento perfeito */
     .site-header {
       position: fixed;
       top: 0;
@@ -93,27 +94,10 @@
       padding-top: 67px;
     }
 
-    /* CENTERED MENU */
-    .nav-links {
-      grid-column: 2;
-      justify-self: center;
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      color: rgba(247, 242, 232, 0.7);
-      font-size: 14px;
-      font-weight: 680;
-    }
-
-    .nav-links a:hover,
-    .nav-links [aria-current="page"] {
-      color: var(--ivory);
-    }
-
-    /* LOGO ON THE TOP RIGHT */
+    /* LOGÓTIPO NO CANTO SUPERIOR ESQUERDO */
     .brand {
-      grid-column: 3;
-      justify-self: end;
+      grid-column: 1; /* Move o logo para a primeira coluna (esquerda) */
+      justify-self: start;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -137,6 +121,23 @@
       font-family: Georgia, "Times New Roman", serif;
       font-size: 18px;
       line-height: 1;
+    }
+
+    /* MENU CENTRADO */
+    .nav-links {
+      grid-column: 2; /* Mantém o menu na coluna do meio */
+      justify-self: center;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: rgba(247, 242, 232, 0.7);
+      font-size: 14px;
+      font-weight: 680;
+    }
+
+    .nav-links a:hover,
+    .nav-links [aria-current="page"] {
+      color: var(--ivory);
     }
 
     .hero {
@@ -603,21 +604,21 @@
   <div class="top-hover-zone"></div>
   
   <header class="site-header">
-    <!-- Column 1 keeps the centered alignment structurally sound -->
-    <div></div>
+    <!-- Coluna 1 (Esquerda): Logótipo -->
+    <div class="brand">
+      <div class="brand-mark">M</div>
+      <span>MADEIRA RESIDENCES</span>
+    </div>
 
-    <!-- Column 2 (Center): Navigation Menu -->
+    <!-- Coluna 2 (Centro): Menu de Navegação -->
     <nav class="nav-links">
       <a href="#stays">Stays</a>
       <a href="#properties">Properties</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <!-- Column 3 (Right): Logo -->
-    <div class="brand">
-      <div class="brand-mark">M</div>
-      <span>MADEIRA RESIDENCES</span>
-    </div>
+    <!-- Coluna 3 (Direita) fica vazia para manter o equilíbrio visual do centro -->
+    <div></div>
   </header>
 
   <main>
@@ -705,7 +706,7 @@
         <div class="feature-card">
           <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Penthouse">
           <div class="card-copy">
-            <p>EXCLUSIVE EXCLUSIVE</p>
+            <p>EXCLUSIVE</p>
             <h3>2-Bedroom Ocean View Penthouse in Funchal</h3>
             <span>Located in the heart of the tourist district, featuring a massive terrace with a private jacuzzi.</span>
             <a href="#contact">Schedule a Virtual Tour →</a>
