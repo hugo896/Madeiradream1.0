@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descobre a Madeira | Estadias e Imóveis de Luxo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="top-hover-zone"></div>
+  
+  <header class="site-header">
+    <nav class="nav-links">
+      <a href="#estadias">Estadias</a>
+      <a href="#imoveis">Imóveis</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="brand">
+      <div class="brand-mark">M</div>
+      <span>MADEIRA RESIDENCES</span>
+    </div>
+    <div class="site-search">
+      <div class="search-icon"></div>
+      <input type="text" placeholder="Pesquisar destinos ou casas...">
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">O teu refúgio no Atlântico</p>
+        <h1>Encontra a estadia ou a casa dos teus sonhos na Madeira</h1>
+        <p class="hero-text">Explora vilas exclusivas com piscina infinita sobre o oceano e oportunidades únicas de investimento imobiliário na ilha mais bonita da Europa.</p>
+        <div class="hero-actions">
+          <a href="#estadias" class="button button-primary">Ver Estadias</a>
+          <a href="#imoveis" class="button button-secondary">Explorar Imóveis</a>
+        </div>
+        <div class="trust-row">
+          <span>✓ Suporte Local 24/7</span>
+          <span>✓ Propriedades Verificadas</span>
+          <span>✓ Parceria Booking.com</span>
+        </div>
+      </div>
+      <figure class="hero-media">
+        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80" alt="Ilha da Madeira">
+        <figcaption>
+          <h3>Vila Ponta do Sol</h3>
+          <span>Vista Mar Definitiva</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- SECTION ESTADIAS -->
+    <section id="estadias" class="section private-offers">
+      <div class="offers-heading">
+        <p class="eyebrow">Alojamento Local</p>
+        <h2>Estadias em Destaque</h2>
+        <p>As melhores localizações para férias, desde o Funchal soalheiro até à tranquilidade da Calheta.</p>
+      </div>
+      
+      <div class="offer-grid">
+        <!-- Card 1 -->
+        <div class="offer-card">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" alt="Hotel Funchal">
+          <div class="offer-copy">
+            <p>FUNCHAL</p>
+            <h3>Apartamento Luxury Bay</h3>
+            <span>A 5 minutos da praia, piscina partilhada e varanda privativa.</span>
+            <a href="#">Ver Disponibilidade →</a>
+          </div>
+        </div>
+        <!-- Card 2 (Featured) -->
+        <div class="offer-card featured-offer">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Vila Calheta">
+          <div class="offer-copy">
+            <p>CALHETA • DESTAQUE</p>
+            <h3>Cliffside Infinity Villa</h3>
+            <span>Vivenda de luxo isolada com piscina aquecida e pôr do sol incrível.</span>
+            <a href="#">Reservar em Parceria com Booking →</a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="offer-card">
+          <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80" alt="Turismo Rural">
+          <div class="offer-copy">
+            <p>SANTANA</p>
+            <h3>Nature Cottage Madeira</h3>
+            <span>Para amantes da natureza, junto às melhores rotas de levadas.</span>
+            <a href="#">Ver Disponibilidade →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION IMÓVEIS -->
+    <section id="imoveis" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Mediação Imobiliária</p>
+        <h2>Propriedades Disponíveis para Venda</h2>
+      </div>
+
+      <div class="feature-grid two-up">
+        <div class="feature-card">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Casa Moderna">
+          <div class="card-copy">
+            <p>OPORTUNIDADE DE INVESTIMENTO</p>
+            <h3>Moderna Vila T3 na São Martinho</h3>
+            <span>Arquitetura contemporânea, excelente exposição solar e acabamentos premium. Ideal para Golden Visa.</span>
+            <a href="#contacto">Solicitar Preço e Brochura →</a>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Penthouse">
+          <div class="card-copy">
+            <p>EXCLUSIVO</p>
+            <h3>Penthouse T2 Vista Mar no Funchal</h3>
+            <span>Localizado no coração da zona hoteleira, terraço enorme com jacuzzi privado.</span>
+            <a href="#contacto">Agendar Visita Virtual →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY BAND (PORQUÊ A MADEIRA) -->
+    <section class="story-band">
+      <div class="story-copy">
+        <p class="eyebrow">Viver no Paraíso</p>
+        <h2>Porquê investir ou passar férias na Ilha da Madeira?</h2>
+        <p class="hero-text">Eleita consecutivamente o melhor destino insular do mundo. Clima ameno o ano inteiro, segurança absoluta e uma comunidade vibrante de nómadas digitais.</p>
+        <ul class="feature-list">
+          <li>Clima primaveril durante os 12 meses do ano</li>
+          <li>Benefícios fiscais para residentes não habituais (RNH)</li>
+          <li>Infraestrutura e conexões aéreas diretas para toda a Europa</li>
+        </ul>
+      </div>
+      <figure class="story-image">
+        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" alt="Estilo de vida Madeira">
+      </figure>
+    </section>
+
+    <!-- CONTACTO / FORMULÁRIO DE LEADS -->
+    <section id="contacto" class="contact-section">
+      <div class="contact-copy">
+        <p class="eyebrow">Fale Connosco</p>
+        <h2>Procura algo exclusivo?</h2>
+        <p>Deixe os seus dados. A nossa equipa local ajuda-o a encontrar a estadia perfeita ou a intermediar a compra do seu próximo imóvel na Madeira.</p>
+        <a href="https://wa.me/#" class="whatsapp-link">💬 Fale connosco diretamente por WhatsApp</a>
+      </div>
+
+      <form class="lead-form" onsubmit="event.preventDefault(); alert('Obrigado! Entraremos em contacto brevemente.');">
+        <label>
+          Nome Completo
+          <input type="text" placeholder="Ex: João Silva" required>
+        </label>
+        <label>
+          Email
+          <input type="email" placeholder="Ex: joao@email.com" required>
+        </label>
+        <label>
+          O que procura?
+          <select required>
+            <option value="">Selecione uma opção</option>
+            <option value="estadia">Alugar casa para férias (Estadia)</option>
+            <option value="comprar">Comprar Casa / Investimento Imobiliário</option>
+            <option value="vender">Revender o meu imóvel</option>
+          </select>
+        </label>
+        <button type="submit" class="button button-primary" style="border:0; width:100%;">Enviar Pedido</button>
+        <p class="form-note"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Madeira Residences. Todos os direitos reservados.</p>
+    <p>Madeira, Portugal</p>
+  </footer>
+
+  <script>
+    // Script básico para esconder/mostrar o header ao fazer scroll (efeito do teu CSS)
+    let lastScrollY = window.scrollY;
+    const header = document.querySelector('.site-header');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 100) {
+        header.classList.add('header-hidden');
+      } else {
+        header.classList.remove('header-hidden');
+      }
+      lastScrollY = window.scrollY;
+    });
+  </script>
+</body>
+</html>
