@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LUXESCAPE | Madeira Luxury Stays</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Madeira | Luxury Stays & Real Estate</title>
 
   <style>
-
-    :root{
-      --ink:#151513;
-      --bg:#fbfaf6;
-      --gold:#b99a5f;
-      --muted:#6f6a63;
-      --line:#ddd3c2;
+    :root {
+      --ink: #151513;
+      --charcoal: #20201d;
+      --muted: #706b62;
+      --ivory: #f7f2e8;
+      --porcelain: #fbfaf6;
+      --line: #ded5c4;
+      --laurel: #34463a;
+      --gold: #b99a5f;
+      --copper: #7f5b3b;
+      --white: #ffffff;
+      --radius: 22px;
+      --radius-small: 14px;
+      --shadow: 0 28px 90px rgba(21,21,19,.16);
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+    *{box-sizing:border-box;}
 
     body{
-      font-family:Inter,sans-serif;
-      background:var(--bg);
+      margin:0;
+      background:var(--porcelain);
       color:var(--ink);
+      font-family:Inter,-apple-system,sans-serif;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+    a{text-decoration:none;color:inherit;}
 
     .site-header{
       position:fixed;
@@ -41,8 +42,9 @@
       display:grid;
       grid-template-columns:1fr auto 1fr;
       align-items:center;
-      padding:20px 64px;
-      background:rgba(21,21,19,.92);
+      padding:16px 64px;
+      background:rgba(21,21,19,.94);
+      border-bottom:1px solid rgba(185,154,95,.34);
       backdrop-filter:blur(20px);
     }
 
@@ -53,7 +55,7 @@
     }
 
     .nav-links a{
-      color:rgba(255,255,255,.75);
+      color:rgba(247,242,232,.7);
       font-size:14px;
       font-weight:700;
     }
@@ -66,8 +68,8 @@
       grid-column:3;
       justify-self:end;
       display:flex;
-      gap:12px;
       align-items:center;
+      gap:12px;
       color:white;
       font-weight:800;
     }
@@ -76,123 +78,198 @@
       width:34px;
       height:34px;
       border-radius:50%;
-      border:1px solid rgba(185,154,95,.5);
       display:flex;
       align-items:center;
       justify-content:center;
+      border:1px solid rgba(185,154,95,.6);
+    }
+
+    main{
+      padding-top:72px;
     }
 
     .hero{
-      height:100vh;
-      position:relative;
-      overflow:hidden;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+      min-height:85vh;
+      padding:60px 64px;
     }
 
-    .hero img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .overlay{
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,.15));
-    }
-
-    .hero-content{
-      position:absolute;
-      bottom:80px;
-      left:64px;
-      max-width:700px;
-      color:white;
-    }
-
-    .hero-content h1{
-      font-size:82px;
+    .hero h1{
+      font-size:74px;
       line-height:1;
       margin-bottom:20px;
     }
 
-    .hero-content p{
+    .hero p{
+      color:var(--muted);
       font-size:22px;
       line-height:1.6;
-      color:rgba(255,255,255,.82);
-      margin-bottom:30px;
     }
 
-    .btn{
-      display:inline-flex;
-      padding:16px 28px;
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      margin-top:28px;
+    }
+
+    .button{
+      padding:16px 24px;
       border-radius:999px;
-      background:white;
-      color:black;
       font-weight:800;
+    }
+
+    .button-primary{
+      background:var(--charcoal);
+      color:white;
+    }
+
+    .button-secondary{
+      border:1px solid var(--line);
+      background:white;
+    }
+
+    .hero-media img{
+      width:100%;
+      height:620px;
+      object-fit:cover;
+      border-radius:22px;
     }
 
     .section{
       padding:100px 64px;
     }
 
-    .grid{
+    .offer-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:24px;
+      gap:22px;
     }
 
-    .card{
+    .offer-card{
       background:white;
-      border-radius:24px;
+      border-radius:22px;
       overflow:hidden;
       border:1px solid var(--line);
     }
 
-    .card img{
+    .offer-card img{
       width:100%;
       height:280px;
       object-fit:cover;
     }
 
-    .copy{
-      padding:24px;
+    .offer-copy{
+      padding:22px;
     }
 
-    .copy p{
-      color:var(--gold);
+    .offer-copy p{
+      color:var(--copper);
       font-size:13px;
       font-weight:800;
-      margin-bottom:10px;
     }
 
-    .copy h3{
-      font-size:30px;
-      margin-bottom:12px;
+    .offer-copy h3{
+      font-size:28px;
+      margin:10px 0;
     }
 
-    .copy span{
+    .offer-copy span{
       color:var(--muted);
-      line-height:1.6;
+      line-height:1.5;
       display:block;
-      margin-bottom:18px;
+      margin-bottom:14px;
     }
 
-    .copy a{
-      color:#34463a;
+    .offer-copy a{
+      color:var(--laurel);
       font-weight:800;
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:22px;
+    }
+
+    .feature-card{
+      background:white;
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid var(--line);
+    }
+
+    .feature-card img{
+      width:100%;
+      height:340px;
+      object-fit:cover;
+    }
+
+    .card-copy{
+      padding:22px;
+    }
+
+    .card-copy p{
+      color:var(--copper);
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .card-copy h3{
+      font-size:30px;
+    }
+
+    .card-copy span{
+      display:block;
+      color:var(--muted);
+      line-height:1.5;
+      margin-bottom:14px;
+    }
+
+    .card-copy a{
+      color:var(--laurel);
+      font-weight:800;
+    }
+
+    .contact-section{
+      background:#151513;
+      color:white;
+      padding:100px 64px;
+      text-align:center;
+    }
+
+    .contact-section h2{
+      font-size:64px;
+    }
+
+    .contact-section p{
+      color:rgba(255,255,255,.72);
+      font-size:22px;
+      max-width:700px;
+      margin:auto;
+    }
+
+    .footer{
+      padding:24px 64px;
+      background:#eee6d8;
+      display:flex;
+      justify-content:space-between;
     }
 
     @media(max-width:900px){
 
-      .grid{
+      .hero{
         grid-template-columns:1fr;
       }
 
-      .hero-content{
-        left:24px;
-        right:24px;
+      .offer-grid,
+      .feature-grid{
+        grid-template-columns:1fr;
       }
 
-      .hero-content h1{
+      .hero h1{
         font-size:48px;
       }
 
@@ -201,7 +278,7 @@
       }
 
       .site-header{
-        padding:18px 24px;
+        padding:16px 24px;
       }
 
     }
@@ -217,34 +294,80 @@
 <div></div>
 
 <nav class="nav-links">
-<a href="stays.html">Stays</a>
-<a href="properties.html">Properties</a>
-<a href="contact.html">Contact</a>
+  <a href="stays.html">Stays</a>
+  <a href="properties.html">Properties</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
 <div class="brand">
-<div class="brand-mark">M</div>
-<span>LUXESCAPE</span>
+  <div class="brand-mark">M</div>
+  <span>LUXESCAPE</span>
 </div>
 
 </header>
 
+<main>
+
 <section class="hero">
 
-<img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80">
+<div>
 
-<div class="overlay"></div>
+<p>Your sanctuary in the Atlantic</p>
 
-<div class="hero-content">
-<h1>Discover Madeira differently.</h1>
+<h1>Find your dream stay or home in Madeira</h1>
 
 <p>
-Private stays, ocean escapes and curated luxury experiences on the Atlantic island.
+Explore exclusive villas with infinity pools overlooking the ocean and unique real estate investment opportunities.
 </p>
 
-<a href="stays.html" class="btn">
-Explore Stays
-</a>
+<div class="hero-actions">
+<a href="stays.html" class="button button-primary">View Stays</a>
+<a href="properties.html" class="button button-secondary">Explore Properties</a>
+</div>
+
+</div>
+
+<div class="hero-media">
+<img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80">
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Featured Stays</h2>
+
+<div class="offer-grid">
+
+<div class="offer-card">
+<img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80">
+<div class="offer-copy">
+<p>FUNCHAL</p>
+<h3>Luxury Bay Apartment</h3>
+<span>5 minutes from the beach and ocean views.</span>
+<a href="stays.html">View Stay →</a>
+</div>
+</div>
+
+<div class="offer-card">
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80">
+<div class="offer-copy">
+<p>CALHETA</p>
+<h3>Cliffside Infinity Villa</h3>
+<span>Luxury villa with heated pool and sunset views.</span>
+<a href="stays.html">View Stay →</a>
+</div>
+</div>
+
+<div class="offer-card">
+<img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80">
+<div class="offer-copy">
+<p>SANTANA</p>
+<h3>Nature Cottage</h3>
+<span>Luxury escape near Madeira levadas.</span>
+<a href="stays.html">View Stay →</a>
+</div>
+</div>
 
 </div>
 
@@ -252,41 +375,56 @@ Explore Stays
 
 <section class="section">
 
-<div class="grid">
+<h2>Properties Available For Sale</h2>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80">
-<div class="copy">
-<p>CALHETA</p>
-<h3>Villa Aurora</h3>
-<span>Private infinity villa with ocean sunsets.</span>
-<a href="stays.html">View Stay →</a>
-</div>
-</div>
+<div class="feature-grid">
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80">
-<div class="copy">
-<p>FUNCHAL</p>
-<h3>Ocean Penthouse</h3>
-<span>Minimal luxury apartment near the marina.</span>
-<a href="properties.html">Explore →</a>
+<div class="feature-card">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80">
+<div class="card-copy">
+<p>INVESTMENT</p>
+<h3>Modern Villa in Funchal</h3>
+<span>Contemporary architecture and premium finishes.</span>
+<a href="properties.html">View Property →</a>
 </div>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80">
-<div class="copy">
-<p>SANTANA</p>
-<h3>Nature Escape</h3>
-<span>Hidden luxury surrounded by nature.</span>
-<a href="contact.html">Contact →</a>
+<div class="feature-card">
+<img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80">
+<div class="card-copy">
+<p>EXCLUSIVE</p>
+<h3>Ocean View Penthouse</h3>
+<span>Private terrace and jacuzzi overlooking the Atlantic.</span>
+<a href="properties.html">View Property →</a>
 </div>
 </div>
 
 </div>
 
 </section>
+
+<section class="contact-section">
+
+<h2>Looking for something exclusive?</h2>
+
+<p>
+Our local Madeira team helps investors and travelers discover the island differently.
+</p>
+
+<div style="margin-top:30px;">
+<a href="contact.html" class="button button-primary">
+Contact Us
+</a>
+</div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+<p>© 2026 LUXESCAPE</p>
+<p>Madeira, Portugal</p>
+</footer>
 
 </body>
 </html>
