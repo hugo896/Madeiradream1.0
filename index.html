@@ -1,801 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Discover Madeira | Luxury Stays & Real Estate</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LUXESCAPE | Madeira Luxury Stays</title>
+
   <style>
-    :root {
-      --ink: #151513;
-      --charcoal: #20201d;
-      --muted: #706b62;
-      --ivory: #f7f2e8;
-      --porcelain: #fbfaf6;
-      --line: #ded5c4;
-      --laurel: #34463a;
-      --gold: #b99a5f;
-      --copper: #7f5b3b;
-      --white: #ffffff;
-      --radius: 22px;
-      --radius-small: 14px;
-      --shadow: 0 28px 90px rgba(21, 21, 19, 0.16);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--porcelain);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* HEADER: Alinhamento em 3 colunas fixas */
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 20;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 24px;
-      padding: 16px clamp(20px, 5vw, 64px);
-      color: var(--ivory);
-      background: rgba(21, 21, 19, 0.94);
-      border-bottom: 1px solid rgba(185, 154, 95, 0.34);
-      box-shadow: 0 16px 50px rgba(21, 21, 19, 0.16);
-      backdrop-filter: blur(24px);
-      transform: translateY(0);
-      transition: transform 260ms ease, background 260ms ease;
-    }
-
-    .site-header.header-hidden {
-      transform: translateY(-112%);
-    }
-
-    .top-hover-zone:hover + .site-header,
-    .site-header:hover {
-      transform: translateY(0);
-    }
-
-    .top-hover-zone {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 30;
-      height: 28px;
-      pointer-events: none;
-    }
-
-    .header-is-hidden .top-hover-zone {
-      pointer-events: auto;
-    }
-
-    main {
-      padding-top: 67px;
-    }
-
-    /* MENU DE NAVEGAÇÃO NO CENTRO (Coluna 2) */
-    .nav-links {
-      grid-column: 2;
-      justify-self: center;
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      color: rgba(247, 242, 232, 0.7);
-      font-size: 14px;
-      font-weight: 680;
-    }
-
-    .nav-links a:hover,
-    .nav-links [aria-current="page"] {
-      color: var(--ivory);
-    }
-
-    /* NOME DA EMPRESA E LOGO NO CANTO SUPERIOR DIREITO (Coluna 3) */
-    .brand {
-      grid-column: 3;
-      justify-self: end;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 15px;
-      font-weight: 820;
-    }
-
-    .brand-mark {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      color: var(--ivory);
-      border: 1px solid rgba(185, 154, 95, 0.68);
-      border-radius: 50%;
-      background:
-        linear-gradient(145deg, rgba(185, 154, 95, 0.28), rgba(52, 70, 58, 0.2)),
-        var(--charcoal);
-      box-shadow: inset 0 0 0 1px rgba(247, 242, 232, 0.08), 0 0 0 5px rgba(185, 154, 95, 0.1);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 18px;
-      line-height: 1;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(420px, 1fr);
-      gap: clamp(28px, 5vw, 72px);
-      align-items: center;
-      min-height: calc(82vh - 72px);
-      padding: clamp(30px, 4vw, 58px) clamp(20px, 5vw, 64px) 30px;
-      background:
-        linear-gradient(90deg, rgba(247, 242, 232, 0.92), rgba(251, 250, 246, 0.78)),
-        var(--porcelain);
-    }
-
-    .hero-copy {
-      max-width: 680px;
-      min-width: 0;
-    }
-
-    .hero > *,
-    .story-band > *,
-    .contact-section > *,
-    .catalog-layout > * {
-      min-width: 0;
-    }
-
-    .eyebrow {
-      margin: 0 0 18px;
-      color: var(--copper);
-      font-size: 12px;
-      font-weight: 820;
-      letter-spacing: 0;
-      text-transform: uppercase;
-    }
-
-    h1, h2, h3, p {
-      margin-top: 0;
-    }
-
-    h1 {
-      margin-bottom: 18px;
-      font-size: clamp(42px, 5.5vw, 74px);
-      line-height: 1;
-      letter-spacing: 0;
-      overflow-wrap: anywhere;
-    }
-
-    h2 {
-      margin-bottom: 18px;
-      font-size: clamp(34px, 5vw, 62px);
-      line-height: 1.03;
-      letter-spacing: 0;
-    }
-
-    h3 {
-      margin-bottom: 12px;
-      font-size: 26px;
-      line-height: 1.08;
-    }
-
-    .hero-text,
-    .section-heading p,
-    .story-copy p,
-    .editorial-band p,
-    .contact-copy p,
-    .page-hero p {
-      color: var(--muted);
-      font-size: clamp(17px, 1.8vw, 22px);
-      line-height: 1.55;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 26px 0;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 22px;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      font-size: 15px;
-      font-weight: 820;
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-    }
-
-    .button-primary {
-      color: var(--ivory);
-      background: var(--charcoal);
-      box-shadow: 0 16px 34px rgba(32, 32, 29, 0.2);
-    }
-
-    .button-secondary {
-      color: var(--ink);
-      background: rgba(255, 255, 255, 0.7);
-      border-color: var(--line);
-    }
-
-    .trust-row {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .trust-row span {
-      padding: 9px 13px;
-      color: #4d463b;
-      background: rgba(255, 255, 255, 0.64);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 720;
-    }
-
-    .hero-media,
-    .feature-card,
-    .listing-card,
-    .story-image {
-      overflow: hidden;
-      border-radius: var(--radius);
-    }
-
-    .hero-media {
-      position: relative;
-      margin: 0;
-      box-shadow: var(--shadow);
-    }
-
-    .hero-media img {
-      width: 100%;
-      height: min(560px, 56vh);
-      min-height: 340px;
-      object-fit: cover;
-    }
-
-    .hero-media figcaption {
-      position: absolute;
-      right: 22px;
-      bottom: 22px;
-      left: 22px;
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 18px;
-      color: var(--ivory);
-      background: rgba(21, 21, 19, 0.52);
-      border: 1px solid rgba(247, 242, 232, 0.24);
-      border-radius: var(--radius-small);
-      backdrop-filter: blur(16px);
-    }
-
-    .hero-media span {
-      color: rgba(247, 242, 232, 0.78);
-    }
-
-    .section {
-      padding: clamp(68px, 9vw, 118px) clamp(20px, 5vw, 64px);
-    }
-
-    .private-offers {
-      background: var(--porcelain);
-    }
-
-    .offers-heading {
-      display: block;
-      max-width: 760px;
-      margin-bottom: clamp(30px, 5vw, 54px);
-    }
-
-    .offers-heading h2 {
-      max-width: 720px;
-    }
-
-    .offers-heading p:not(.eyebrow) {
-      max-width: 640px;
-    }
-
-    .offer-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.25fr 0.85fr;
-      gap: 18px;
-    }
-
-    .offer-card {
-      overflow: hidden;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: 0 18px 70px rgba(21, 21, 19, 0.08);
-    }
-
-    .offer-card img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-    }
-
-    .featured-offer img {
-      aspect-ratio: 16 / 9;
-    }
 
-    .offer-copy {
-      display: grid;
-      gap: 10px;
-      padding: 22px;
+    :root{
+      --ink:#151513;
+      --bg:#fbfaf6;
+      --gold:#b99a5f;
+      --muted:#6f6a63;
+      --line:#ddd3c2;
     }
 
-    .offer-copy p {
-      margin: 0;
-      color: var(--copper);
-      font-size: 13px;
-      font-weight: 820;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    .offer-copy h3 {
-      margin: 0;
+    body{
+      font-family:Inter,sans-serif;
+      background:var(--bg);
+      color:var(--ink);
     }
 
-    .offer-copy span {
-      color: var(--muted);
-      line-height: 1.45;
+    a{
+      text-decoration:none;
+      color:inherit;
     }
 
-    .offer-copy a {
-      color: var(--laurel);
-      font-weight: 820;
+    .site-header{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:100;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      padding:20px 64px;
+      background:rgba(21,21,19,.92);
+      backdrop-filter:blur(20px);
     }
 
-    .section-heading {
-      max-width: 840px;
-      margin-bottom: 42px;
+    .nav-links{
+      grid-column:2;
+      display:flex;
+      gap:28px;
     }
 
-    .feature-grid {
-      display: grid;
-      gap: 18px;
+    .nav-links a{
+      color:rgba(255,255,255,.75);
+      font-size:14px;
+      font-weight:700;
     }
 
-    .two-up {
-      grid-template-columns: repeat(2, 1fr);
+    .nav-links a:hover{
+      color:white;
     }
 
-    .feature-card {
-      background: var(--white);
-      border: 1px solid var(--line);
+    .brand{
+      grid-column:3;
+      justify-self:end;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      color:white;
+      font-weight:800;
     }
 
-    .feature-card img {
-      width: 100%;
-      aspect-ratio: 16 / 11;
-      object-fit: cover;
+    .brand-mark{
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      border:1px solid rgba(185,154,95,.5);
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
-    .card-copy {
-      display: grid;
-      gap: 12px;
-      padding: 24px;
+    .hero{
+      height:100vh;
+      position:relative;
+      overflow:hidden;
     }
 
-    .card-copy p {
-      margin: 0;
-      color: var(--copper);
-      font-size: 13px;
-      font-weight: 820;
+    .hero img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
     }
 
-    .card-copy span {
-      color: var(--muted);
-      line-height: 1.5;
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,.15));
     }
 
-    .card-copy a,
-    .whatsapp-link {
-      color: var(--laurel);
-      font-weight: 820;
+    .hero-content{
+      position:absolute;
+      bottom:80px;
+      left:64px;
+      max-width:700px;
+      color:white;
     }
 
-    .story-band {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
-      gap: clamp(32px, 6vw, 86px);
-      align-items: center;
-      padding: clamp(68px, 10vw, 128px) clamp(20px, 5vw, 64px);
-      background: #eee6d8;
+    .hero-content h1{
+      font-size:82px;
+      line-height:1;
+      margin-bottom:20px;
     }
 
-    .story-image img {
-      width: 100%;
-      height: clamp(430px, 58vw, 720px);
-      object-fit: cover;
+    .hero-content p{
+      font-size:22px;
+      line-height:1.6;
+      color:rgba(255,255,255,.82);
+      margin-bottom:30px;
     }
 
-    .feature-list {
-      display: grid;
-      gap: 14px;
-      margin: 28px 0 0;
-      padding: 0;
-      list-style: none;
+    .btn{
+      display:inline-flex;
+      padding:16px 28px;
+      border-radius:999px;
+      background:white;
+      color:black;
+      font-weight:800;
     }
 
-    .feature-list li {
-      position: relative;
-      padding-left: 28px;
-      color: #494237;
-      font-weight: 660;
-      line-height: 1.45;
+    .section{
+      padding:100px 64px;
     }
 
-    .feature-list li::before {
-      position: absolute;
-      left: 0;
-      top: 0.58em;
-      width: 10px;
-      height: 10px;
-      background: var(--gold);
-      border-radius: 50%;
-      content: "";
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
     }
 
-    .contact-section {
-      display: grid;
-      grid-template-columns: minmax(0, 0.8fr) minmax(360px, 1fr);
-      gap: clamp(28px, 5vw, 72px);
-      padding: clamp(68px, 9vw, 118px) clamp(20px, 5vw, 64px);
-      background: var(--ink);
-      color: var(--ivory);
+    .card{
+      background:white;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid var(--line);
     }
 
-    .contact-section .eyebrow {
-      color: var(--gold);
+    .card img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
     }
 
-    .contact-copy p {
-      color: rgba(247, 242, 232, 0.72);
+    .copy{
+      padding:24px;
     }
 
-    .whatsapp-link {
-      display: inline-flex;
-      margin-top: 10px;
-      color: var(--gold);
+    .copy p{
+      color:var(--gold);
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:10px;
     }
 
-    .lead-form {
-      display: grid;
-      gap: 16px;
-      padding: clamp(22px, 4vw, 34px);
-      background: rgba(247, 242, 232, 0.08);
-      border: 1px solid rgba(247, 242, 232, 0.16);
-      border-radius: var(--radius);
+    .copy h3{
+      font-size:30px;
+      margin-bottom:12px;
     }
 
-    .lead-form label {
-      display: grid;
-      gap: 8px;
-      color: rgba(247, 242, 232, 0.78);
-      font-size: 14px;
-      font-weight: 820;
+    .copy span{
+      color:var(--muted);
+      line-height:1.6;
+      display:block;
+      margin-bottom:18px;
     }
 
-    .lead-form input,
-    .lead-form select {
-      width: 100%;
-      min-height: 50px;
-      padding: 0 14px;
-      color: var(--ivory);
-      background: rgba(247, 242, 232, 0.08);
-      border: 1px solid rgba(247, 242, 232, 0.2);
-      border-radius: var(--radius-small);
-      font: inherit;
+    .copy a{
+      color:#34463a;
+      font-weight:800;
     }
 
-    .lead-form select option {
-      color: var(--ink);
-    }
-
-    .lead-form input::placeholder {
-      color: rgba(247, 242, 232, 0.48);
-    }
-
-    /* BOTÃO FORMULÁRIO: Com efeito de transição idêntico ao menu */
-    .lead-form .btn-submit {
-      border: 0;
-      width: 100%;
-      cursor: pointer;
-      background: var(--charcoal);
-      color: rgba(247, 242, 232, 0.7); /* Cor padrão idêntica ao menu */
-      transition: color 180ms ease, background 180ms ease;
-    }
-
-    .lead-form .btn-submit:hover {
-      background: transparent;
-      color: var(--ivory); /* Fica marfim brilhante como o menu em hover */
-    }
-
-    .site-footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 28px clamp(20px, 5vw, 64px);
-      color: var(--muted);
-      background: #eee6d8;
-    }
-
-    .site-footer p {
-      margin: 0;
-    }
-
-    .site-footer p:first-child {
-      color: var(--ink);
-      font-weight: 820;
-    }
+    @media(max-width:900px){
 
-    @media (max-width: 980px) {
-      .hero, .story-band, .contact-section, .offers-heading {
-        grid-template-columns: 1fr;
+      .grid{
+        grid-template-columns:1fr;
       }
 
-      .hero {
-        min-height: auto;
+      .hero-content{
+        left:24px;
+        right:24px;
       }
 
-      .two-up, .offer-grid {
-        grid-template-columns: 1fr;
+      .hero-content h1{
+        font-size:48px;
       }
+
+      .section{
+        padding:80px 24px;
+      }
+
+      .site-header{
+        padding:18px 24px;
+      }
+
     }
 
-    @media (max-width: 720px) {
-      .site-header {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        padding: 14px 18px;
-      }
-
-      main {
-        padding-top: 121px;
-      }
-
-      .nav-links {
-        grid-column: 1;
-        grid-row: 2;
-        justify-self: center;
-        flex-wrap: wrap;
-        gap: 16px;
-      }
-
-      .brand {
-        grid-column: 1;
-        grid-row: 1;
-        justify-self: center;
-      }
-
-      h1 {
-        font-size: 44px;
-      }
-
-      .hero-media img {
-        min-height: 330px;
-      }
-
-      .hero-media figcaption, .site-footer {
-        flex-direction: column;
-      }
-    }
   </style>
+
 </head>
+
 <body>
 
-  <div class="top-hover-zone"></div>
-  
-  <header class="site-header">
-    <!-- Coluna 1 (Esquerda): Elemento invisível (&nbsp;) para segurar a estrutura do grid -->
-    <div style="grid-column: 1;">&nbsp;</div>
+<header class="site-header">
 
-    <!-- Coluna 2 (Centro): Links de Navegação -->
-    <nav class="nav-links">
-      <a href="#stays">Stays</a>
-      <a href="#properties">Properties</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<div></div>
 
-    <!-- Coluna 3 (Direita): Logótipo e Nome da Empresa bem fixados -->
-    <div class="brand">
-      <div class="brand-mark">M</div>
-      <span>LUXESCAPE</span>
-    </div>
-  </header>
+<nav class="nav-links">
+<a href="stays.html">Stays</a>
+<a href="properties.html">Properties</a>
+<a href="contact.html">Contact</a>
+</nav>
 
-  <main>
-    <!-- HERO SECTION -->
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">Your sanctuary in the Atlantic</p>
-        <h1>Find your dream stay or home in Madeira</h1>
-        <p class="hero-text">Explore exclusive villas with infinity pools overlooking the ocean and unique real estate investment opportunities on Europe's most beautiful island.</p>
-        <div class="hero-actions">
-          <a href="#stays" class="button button-primary">View Stays</a>
-          <a href="#properties" class="button button-secondary">Explore Properties</a>
-        </div>
-        <div class="trust-row">
-          <span>✓ 24/7 Local Support</span>
-          <span>✓ Verified Properties</span>
-          <span>✓ Seamless Guest Experience</span>
-        </div>
-      </div>
-      <figure class="hero-media">
-        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80" alt="Madeira Island">
-        <figcaption>
-          <h3>Vila Ponta do Sol</h3>
-          <span>Unobstructed Sea View</span>
-        </figcaption>
-      </figure>
-    </section>
+<div class="brand">
+<div class="brand-mark">M</div>
+<span>LUXESCAPE</span>
+</div>
 
-    <!-- SECTION STAYS -->
-    <section id="stays" class="section private-offers">
-      <div class="offers-heading">
-        <p class="eyebrow">Holiday Rentals</p>
-        <h2>Featured Stays</h2>
-        <p>The absolute best locations for your vacation, from sunny Funchal to the peaceful hills of Calheta.</p>
-      </div>
-      
-      <div class="offer-grid">
-        <div class="offer-card">
-          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" alt="Funchal Hotel">
-          <div class="offer-copy">
-            <p>FUNCHAL</p>
-            <h3>Luxury Bay Apartment</h3>
-            <span>5 minutes from the beach, shared pool, and a private balcony.</span>
-            <a href="#">Check Availability →</a>
-          </div>
-        </div>
-        <div class="offer-card featured-offer">
-          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Calheta Villa">
-          <div class="offer-copy">
-            <p>CALHETA • FEATURED</p>
-            <h3>Cliffside Infinity Villa</h3>
-            <span>Secluded luxury villa featuring a heated pool and incredible sunsets.</span>
-            <a href="villa-aurora.html">View Villa Aurora →</a>
-          </div>
-        </div>
-        <div class="offer-card">
-          <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80" alt="Rural Tourism">
-          <div class="offer-copy">
-            <p>SANTANA</p>
-            <h3>Nature Cottage Madeira</h3>
-            <span>Perfect for nature lovers, located right next to the best levada trails.</span>
-            <a href="#">Check Availability →</a>
-          </div>
-        </div>
-      </div>
-    </section>
+</header>
 
-    <!-- SECTION PROPERTIES -->
-    <section id="properties" class="section">
-      <div class="section-heading">
-        <p class="eyebrow">Real Estate Brokerage</p>
-        <h2>Properties Available For Sale</h2>
-      </div>
+<section class="hero">
 
-      <div class="feature-grid two-up">
-        <div class="feature-card">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Modern House">
-          <div class="card-copy">
-            <p>INVESTMENT OPPORTUNITY</p>
-            <h3>Modern 3-Bedroom Villa in São Martinho</h3>
-            <span>Contemporary architecture, great sun exposure, and premium finishes. Ideal for Golden Visa.</span>
-            <a href="#contact">Request Price & Brochure →</a>
-          </div>
-        </div>
-        <div class="feature-card">
-          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Penthouse">
-          <div class="card-copy">
-            <p>EXCLUSIVE</p>
-            <h3>2-Bedroom Ocean View Penthouse in Funchal</h3>
-            <span>Located in the heart of the tourist district, featuring a massive terrace with a private jacuzzi.</span>
-            <a href="#contact">Schedule a Virtual Tour →</a>
-          </div>
-        </div>
-      </div>
-    </section>
+<img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80">
 
-    <!-- STORY BAND -->
-    <section class="story-band">
-      <div class="story-copy">
-        <p class="eyebrow">Living in Paradise</p>
-        <h2>Why invest or holiday on Madeira Island?</h2>
-        <p class="hero-text">Consecutively voted the world's leading island destination. Mild climate all year round, absolute safety, and a vibrant community of digital nomads.</p>
-        <ul class="feature-list">
-          <li>Spring-like weather 12 months a year</li>
-          <li>Tax benefits for Non-Habitual Residents (NHR)</li>
-          <li>Great infrastructure and direct flight connections across Europe</li>
-        </ul>
-      </div>
-      <figure class="story-image">
-        <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" alt="Madeira Lifestyle">
-      </figure>
-    </section>
+<div class="overlay"></div>
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact-section">
-      <div class="contact-copy">
-        <p class="eyebrow">Get In Touch</p>
-        <h2>Looking for something exclusive?</h2>
-        <p>Leave your details below. Our local expert team will help you find the perfect stay or smoothly broker your next property purchase in Madeira.</p>
-        <a href="https://wa.me/#" class="whatsapp-link">💬 Chat with us directly on WhatsApp</a>
-      </div>
+<div class="hero-content">
+<h1>Discover Madeira differently.</h1>
 
-      <form class="lead-form" onsubmit="event.preventDefault(); alert('Thank you! We will get back to you shortly.');">
-        <label>
-          Full Name
-          <input type="text" placeholder="e.g., John Doe" required>
-        </label>
-        <label>
-          Email Address
-          <input type="email" placeholder="e.g., john@email.com" required>
-        </label>
-        <label>
-          What are you looking for?
-          <select required>
-            <option value="">Select an option</option>
-            <option value="stay">Rent a vacation home (Stay)</option>
-            <option value="buy">Buy a Home / Real Estate Investment</option>
-            <option value="sell">Sell my property</option>
-          </select>
-        </label>
-        <button type="submit" class="button button-primary btn-submit">Submit Request</button>
-      </form>
-    </section>
-  </main>
+<p>
+Private stays, ocean escapes and curated luxury experiences on the Atlantic island.
+</p>
 
-  <footer class="site-footer">
-    <p>© 2026 Madeira Residences. All rights reserved.</p>
-    <p>Madeira, Portugal</p>
-  </footer>
+<a href="stays.html" class="btn">
+Explore Stays
+</a>
 
-  <script>
-    let lastScrollY = window.scrollY;
-    const header = document.querySelector('.site-header');
-    
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > lastScrollY && window.scrollY > 100) {
-        header.classList.add('header-hidden');
-      } else {
-        header.classList.remove('header-hidden');
-      }
-      lastScrollY = window.scrollY;
-    });
-  </script>
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80">
+<div class="copy">
+<p>CALHETA</p>
+<h3>Villa Aurora</h3>
+<span>Private infinity villa with ocean sunsets.</span>
+<a href="stays.html">View Stay →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80">
+<div class="copy">
+<p>FUNCHAL</p>
+<h3>Ocean Penthouse</h3>
+<span>Minimal luxury apartment near the marina.</span>
+<a href="properties.html">Explore →</a>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80">
+<div class="copy">
+<p>SANTANA</p>
+<h3>Nature Escape</h3>
+<span>Hidden luxury surrounded by nature.</span>
+<a href="contact.html">Contact →</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
 </body>
 </html>
