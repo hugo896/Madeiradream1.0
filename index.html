@@ -460,19 +460,43 @@
 
     }
 
+    /* ── CORREÇÃO MENU MOBILE ── */
+
+    @media(max-width:900px){
+      .nav{
+        padding:14px 24px;
+        gap:16px;
+      }
+      .menu{
+        gap:20px;
+      }
+    }
+
     @media(max-width:760px){
 
+      /* nav mantém-se numa linha horizontal — sem column */
       .nav{
-        flex-direction:column;
-        gap:24px;
+        padding:12px 18px;
+        gap:12px;
       }
 
       .menu{
-        gap:18px;
-        flex-wrap:wrap;
-        justify-content:center;
+        gap:14px;
       }
 
+      .menu a{
+        font-size:11px;
+        letter-spacing:.08em;
+      }
+
+      .cta{
+        padding:10px 14px;
+        font-size:11px;
+        letter-spacing:.08em;
+        white-space:nowrap;
+      }
+
+      /* resto da página */
       .hero-text h1{
         font-size:48px;
       }
@@ -491,6 +515,13 @@
         align-items:flex-start;
       }
 
+    }
+
+    @media(max-width:480px){
+      /* ecrãs muito pequenos: esconde links, fica só logo + botão */
+      .menu{
+        display:none;
+      }
     }
 
   </style>
